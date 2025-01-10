@@ -11,7 +11,7 @@ services:
   nginx:
     build: ./docker/nginx
     ports:
-      - "8000:80"
+      - "8085:80"
     volumes:
       - ./public:/var/www/public:delegated
     depends_on:
@@ -41,7 +41,7 @@ services:
       ADMINER_DESIGN: pepa-linha
       ADMINER_DEFAULT_SERVER: database
     ports:
-      - '8082:8080'
+      - '8087:8080'
     networks:
       - app_networks
 
@@ -62,4 +62,4 @@ networks:
 
 
 volumes:
-  database_data:   
+  database_data:
