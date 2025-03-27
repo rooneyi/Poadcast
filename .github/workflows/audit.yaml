@@ -10,7 +10,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.3'
+          php-version: 8.3
           tools: composer:v2
       - name: Setup Cache
         run: echo "COMPOSER_CACHE_DIR = $(composer config cache-dir)" >> $GITHUB_ENV
