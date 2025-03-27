@@ -39,10 +39,8 @@ Cette application web permet de gérer et de partager des podcasts. L'objectif e
 
 2. **Installer Les Dependances avec Docker** :
    ```sh
-   docker-compose-up
-   make ssh
+   docker-compose up --build
    composer install
-   Configurer la base de données : php bin/console do:da:cre
    
 3. **Installer La Base de donnee** :
    ```sh   
@@ -50,14 +48,18 @@ Cette application web permet de gérer et de partager des podcasts. L'objectif e
     php bin/console doctrine:database:create
     php bin/console doctrine:migrations:migrate
 
-4. **Demarrer le serveur** :
+4. **Demarrer le serveur avec Docker** :
+   
    ```sh
-   symfony server
+   docker-compose up 
 
 5. **Ouvrir le localhost a l'addresse** :
    ```sh
-   http://127.0.0.1:8000
+   http://127.0.0.1:8085
    
 ## 📌 Contributions
-Les contributions sont les bienvenues ! Merci de créer une issue ou une pull request.
+Le[composer.json](composer.json)s contributions sont les bienvenues ! Merci de créer une issue ou une pull request.
 
+
+## 📸 Captures d'écran
+![Capture d'écran 1](public/images/screenshot.png) ![Capture d'écran 2](public/images/screenshot2.png)
