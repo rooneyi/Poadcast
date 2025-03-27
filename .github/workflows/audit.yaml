@@ -29,7 +29,7 @@ jobs:
       - name: install deps
         run: composer install --no-progress --optimize-autoloader --prefer-dist --no-interaction
 
-      - name: Run audit
+      - name: Security Audit
         run: |
           composer audit\
             --format = "json"\
