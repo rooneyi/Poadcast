@@ -38,8 +38,8 @@
                     <div class="lg:pr-4">
                         <ul class="space-y-6 text-base lg:flex lg:gap-6 lg:space-y-0 lg:text-sm">
                             <li>
-                                <a href="#" class="text-body block hover:text-title">
-                                    <span>Features</span>
+                                <a href="{{ path('home') }}" class="text-body block hover:text-title">
+                                    <span>Home</span>
                                 </a>
                             </li>
                             <li>
@@ -64,9 +64,11 @@
                         <a href="#" class="btn variant-soft sz-md lg:sz-xs">
                             <span>Login</span>
                         </a>
-                        <a href="#" class="btn variant-neutral sz-md lg:sz-xs">
-                            <span class="btn-label">Sign Up</span>
-                        </a>
+                        {% if app.request.requestUri() != '/register' %}
+{#                        <a href="{{ path('app_register') }}" class="btn variant-neutral sz-md lg:sz-xs">#}
+{#                            <span class="btn-label">Sign Up</span>#}
+{#                        </a>#}
+                        {% endif %}
                     </div>
                 </div>
             </div>

@@ -60,6 +60,5 @@ services:
 networks:
   app_networks:
 
-
 volumes:
   database_data:

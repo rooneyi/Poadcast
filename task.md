@@ -7,7 +7,8 @@
 
 ## 🚀 Mise en place du projet
 - [x] Initialiser un projet Symfony 7.x
-- [x] Configurer la base de données avec Doctrine ORM
+- [x] Configuerer Docker sur le Projet 
+- [ ] Configurer la base de données avec Doctrine ORM
 - [ ] Configurer Twig pour les vues
 - [ ] Mettre en place l'authentification utilisateur (Symfony Security)
 

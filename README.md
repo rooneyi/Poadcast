@@ -36,12 +36,13 @@ Cette application web permet de gérer et de partager des podcasts. L'objectif e
    ```sh
    git clone https://github.com/rooneyi/Poadcast.git
    cd Poadcast
-   
-2. **Installer Les Dependances** :
+
+2. **Installer Les Dependances avec Docker** :
    ```sh
+   docker-compose-up
+   make ssh
    composer install
-   npm install  # Si vous utilisez JavaScript
-   Configurer la base de données :
+   Configurer la base de données : php bin/console do:da:cre
    
 3. **Installer La Base de donnee** :
    ```sh   
