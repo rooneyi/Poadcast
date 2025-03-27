@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
         {% block stylesheets %}
         {% endblock %}
 
@@ -11,10 +13,18 @@
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
     </head>
-    <body>
+    <body class="font-['Inter'] bg-gray-50">
         {% include "layout/_header.html.twig" %}
         {% block body %}{% endblock %}
         {% include "layout/_footer.html.twig" %}
 
     </body>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #6E8EFB 0%, #A777E3 100%);
+        }
+        .podcast-icon {
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 100%);
+        }
+    </style>
 </html>
