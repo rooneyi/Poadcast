@@ -1,55 +1,85 @@
 <header>
-    <nav id="navbar" class="group fixed z-20 w-full   bg-white backdrop-blur md:relative dark:bg-gray-950/50 lg:dark:bg-transparent">
-        <div class="m-auto max-w-7xl px-6">
+    <nav id="navbar" class="group fixed z-20 w-full border-b border-dashed bg-white backdrop-blur md:relative dark:bg-gray-950/50 lg:dark:bg-transparent">
+        <div class="m-auto max-w-5xl px-6">
             <div class="flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
+                <!-- Logo -->
                 <div class="flex w-full justify-between lg:w-auto">
-                    <a href="/" aria-label="home" class="flex items-center space-x-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                        </svg>
+                    <a href="{{ path('app_home_index') }}" aria-label="Accueil" class="flex items-center space-x-2">
+                            <svg width="210" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Microphone icon -->
+                                <path d="M20 26C23.3137 26 26 23.3137 26 20V10C26 6.68629 23.3137 4 20 4C16.6863 4 14 6.68629 14 10V20C14 23.3137 16.6863 26 20 26Z" fill="#7C3AED"/>
+                                <path d="M10 20C10 20 10 28 20 28C30 28 30 20 30 20M20 28V34" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/>
+
+                                <!-- Waveform -->
+                                <path d="M40 15H44V25H40V15ZM48 10H52V30H48V10ZM56 5H60V35H56V5ZM64 12H68V28H64V12ZM72 18H76V22H72V18Z" fill="#4F46E5"/>
+
+                                <!-- Text -->
+                                <text x="80" y="25" font-family="Arial" font-size="20" font-weight="bold" fill="#111827">PodFlow</text>
+                            </svg>
+
                     </a>
-                    <button id="menu-btn" aria-label="open menu" class="btn variant-ghost sz-md icon-only relative z-20 -mr-2.5 block cursor-pointer lg:hidden">
-                        <svg class="text-title m-auto size-6 transition-[transform,opacity] duration-300 group-data-[state=active]:rotate-180 group-data-[state=active]:scale-0 group-data-[state=active]:opacity-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5"></path>
+
+                    <button id="menu-btn" aria-label="Ouvrir le menu" class="btn variant-ghost sz-md icon-only relative z-20 -mr-2.5 block cursor-pointer lg:hidden">
+                        <!-- Icône Menu (3 barres horizontales) -->
+                        <svg class="text-title m-auto size-6 transition-[transform,opacity] duration-300 group-data-[state=active]:rotate-180 group-data-[state=active]:scale-0 group-data-[state=active]:opacity-0"
+                             xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke-width="1.5"
+                             stroke="currentColor">
+                            <path stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M3.75 9h16.5m-16.5 6.75h16.5" />
                         </svg>
-                        <svg class="text-title absolute inset-0 m-auto size-6 -rotate-180 scale-0 opacity-0 transition-[transform,opacity] duration-300 group-data-[state=active]:rotate-0 group-data-[state=active]:scale-100 group-data-[state=active]:opacity-100" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+
+                        <!-- Icône Fermer (croix) -->
+                        <svg class="text-title absolute inset-0 m-auto size-6 -rotate-180 scale-0 opacity-0 transition-[transform,opacity] duration-300 group-data-[state=active]:rotate-0 group-data-[state=active]:scale-100 group-data-[state=active]:opacity-100"
+                             xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke-width="1.5"
+                             stroke="currentColor">
+                            <path stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
                 </div>
 
+                <!-- Menu principal -->
                 <div class="bg-ui mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border p-6 shadow-2xl shadow-gray-300/20 group-data-[state=active]:block md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none lg:group-data-[state=active]:flex dark:shadow-none dark:lg:bg-transparent">
                     <div class="lg:pr-4">
                         <ul class="space-y-6 text-base lg:flex lg:gap-6 lg:space-y-0 lg:text-sm">
                             <li>
-                                <a href="#" class="text-body block hover:text-title">
-                                    <span>Features</span>
+                                <a href="{{ path('app_home_index') }}" class="text-body block hover:text-title font-medium">
+                                    <span>Accueil</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="text-body block hover:text-title">
-                                    <span>Solution</span>
+                                <a href="{{ path('app_home_index') }}" class="text-body block hover:text-title">
+                                    <span>Fonctionnalités</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="text-body block hover:text-title">
-                                    <span>Pricing</span>
+                                <a href="{{ path('app_home_index') }}" class="text-body block hover:text-title">
+                                    <span>Tarifs</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="text-body block hover:text-title">
-                                    <span>About</span>
+                                <a href="{{ path('app_home_index') }}" class="text-body block hover:text-title">
+                                    <span>Espace Admin</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
 
+                    <!-- Boutons de connexion -->
                     <div class="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit lg:border-l lg:pl-6">
-                        <a href="#" class="btn variant-soft sz-md lg:sz-xs">
-                            <span>Login</span>
+                        <a href="{{ path('app_home_index') }}" class="btn variant-soft sz-md lg:sz-xs">
+                            <span>Connexion</span>
                         </a>
-                        <a href="#" class="btn variant-neutral sz-md lg:sz-xs">
-                            <span class="btn-label">Sign Up</span>
+                        <a href="{{ path('app_home_index') }}" class="btn variant-neutral sz-md lg:sz-xs">
+                            <span class="btn-label">Inscription</span>
                         </a>
                     </div>
                 </div>
@@ -57,52 +87,12 @@
         </div>
     </nav>
 </header>
-
-
-<!-- Hero Section -->
-<header class="gradient-bg text-white  ">
-    <div class="container mx-auto max-w-7xl px-6 py-20">
-        <div class="flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-10 md:mb-0">
-                <div class="flex items-center mb-4">
-                    <div class="podcast-icon w-12 h-12 rounded-lg flex items-center justify-center mr-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                        </svg>
-                    </div>
-                    <span class="font-bold">PODFLOW</span>
-                </div>
-                <h1 class="text-4xl text-display font-bold lg:text-5xl">
-                    <span class="block">Créez, gérez et</span>
-                    <span class="block">amplifiez vos podcasts</span>
-                </h1>
-                <p class="text-xl  color-white">
-                    La plateforme tout-en-un pour les créateurs de contenu audio.
-                    <span class="font-semibold">Enregistrement, montage, publication et analytics</span>
-                    dans un seul écosystème.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 mt-4">
-                    <a href="#demo" class="btn  variant-outlined sz-xl  lg:sz-xl">
-                        Voir la démo
-                    </a>
-                    <a href="#pricing" class="btn text-purple-600 variant-neutral sz-xl lg:sz-xl">
-                        Tarifs
-                    </a>
-                </div>
-            </div>
-            <div class="md:w-1/2">
-                <img src="https://illustrations.popsy.co/amber/digital-nomad.svg" alt="Podcast Creation" class="w-full max-w-md mx-auto">
-            </div>
-        </div>
-    </div>
-</header>
-
-
 <script>
-    let navbar = document.querySelector('#navbar') as HTMLElement
-    let btn = document.querySelector('#menu-btn') as HTMLButtonElement
-
-    btn.addEventListener('click', () => {
-        navbar.dataset.state = navbar.dataset.state === 'active' ? '' : 'active'
-    })
+    // Gestion du menu mobile
+    document.getElementById('menu-btn').addEventListener('click', function() {
+        const navbar = document.getElementById('navbar');
+        navbar.setAttribute('data-state',
+            navbar.getAttribute('data-state') === 'active' ? 'inactive' : 'active'
+        );
+    });
 </script>

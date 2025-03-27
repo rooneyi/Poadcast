@@ -1,25 +1,31 @@
+<footer class="border-b bg-white py-12 dark:bg-transparent">
+    <div class="mx-auto max-w-5xl px-6">
+        <div class="flex flex-wrap justify-between gap-6">
+            <!-- Copyright -->
+            <span class="text-caption order-last block text-center text-sm md:order-first">
+                &copy; 2025 PodFlow, Tous droits réservés
+            </span>
 
-<!-- Footer -->
-<footer class="bg-gray-800 text-white py-12">
-    <div class="container mx-auto max-w-7xl px-6">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-6 md:mb-0">
-                <div class="flex items-center">
-                    <div class="w-10 h-10 rounded-lg bg-purple-600 flex items-center justify-center mr-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                        </svg>
-                    </div>
-                    <span class="text-xl font-bold">PODFLOW</span>
-                </div>
-            </div>
-            <div class="flex flex-col items-center md:items-end">
-                <p class="mb-4">© 2025 Rooney Kalumba. Tous droits réservés.</p>
-                <div class="flex space-x-6">
-                    <a href="#" class="hover:text-purple-400 transition">Conditions</a>
-                    <a href="#" class="hover:text-purple-400 transition">Confidentialité</a>
-                    <a href="#" class="hover:text-purple-400 transition">Contact</a>
-                </div>
+            <!-- Liens -->
+            <div class="order-first flex flex-wrap justify-center gap-6 text-sm md:order-last">
+                <a href="{{ path('app_home_index') }}" class="text-body block hover:text-title">
+                    <span>Fonctionnalités</span>
+                </a>
+                <a href="{{ path('app_home_index') }}" class="text-body block hover:text-title">
+                    <span>Tarifs</span>
+                </a>
+                <a href="{{ path('app_home_index') }}" class="text-body block hover:text-title">
+                    <span>Admin</span>
+                </a>
+                <a href="{{ path('app_home_index') }}" class="text-body block hover:text-title">
+                    <span>À propos</span>
+                </a>
+                <a href="{{ path('app_home_index') }}" class="text-body block hover:text-title">
+                    <span>Contact</span>
+                </a>
+                <a href="{{ path('app_home_index') }}" class="text-body block hover:text-title">
+                    <span>Aide</span>
+                </a>
             </div>
         </div>
     </div>

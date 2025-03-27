@@ -15,7 +15,7 @@
 - [ ] Créer les entités et les relations avec Doctrine
 
 ## 🎧 Fonctionnalités principales
-- [ ] Affichage de la liste des podcasts récents sur la page d’accueil
+- [x] Affichage de la liste des podcasts récents sur la page d’accueil
 - [ ] Création d’une page détaillée pour chaque podcast
 - [ ] Implémentation d’un lecteur audio intégré
 - [ ] Ajout d’un formulaire pour uploader des fichiers audio
@@ -44,4 +44,4 @@
 - [ ] Rédiger des tests unitaires avec PHPUnit
 - [ ] Déployer l'application en production
 
-🎯 **Dernière mise à jour** : *(à compléter)*
+🎯 **Dernière mise à jour** : *(à compléter)*************
