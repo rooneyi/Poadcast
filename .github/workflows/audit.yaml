@@ -20,7 +20,7 @@ jobs:
         with:
           path: ${{ env.COMPOSER_CACHE_DIR }}
           key: php8.3-composer-${{ hashFiles('**/composer.json') }}
-          restore-keys:
+          restore-keys: |
             php8.3-composer-latest-
 
       - name: Update Composer
