@@ -7,10 +7,12 @@
 
 ## 🚀 Mise en place du projet
 - [x] Initialiser un projet Symfony 7.x
-- [x] Configuerer Docker sur le Projet 
+- [x] Configurer Docker sur le Projet 
+- [ ] Configurer le CI/CD pour favoriser la production
 - [ ] Configurer la base de données avec Doctrine ORM
 - [ ] Configurer Twig pour les vues
 - [ ] Mettre en place l'authentification utilisateur (Symfony Security)
+- [ ] Créer les entités et les relations avec Doctrine
 
 ## 🎧 Fonctionnalités principales
 - [ ] Affichage de la liste des podcasts récents sur la page d’accueil
