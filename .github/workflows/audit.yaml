@@ -15,19 +15,19 @@ jobs:
           php-version: '8.3'
           tools: composer:v2
 
-      - name: Set Composer Cache Directory
-        run: echo "COMPOSER_CACHE_DIR=$(composer config cache-dir)" >> $GITHUB_ENV
+      - name: Get Composer Cache Directory
+        id: composer-cache
+        run: |
+          echo "dir=$(composer config cache-dir)" >> $GITHUB_OUTPUT
+          echo "COMPOSER_CACHE_DIR=$(composer config cache-dir)" >> $GITHUB_ENV
 
       - name: Cache Composer Dependencies
         uses: actions/cache@v4
         with:
-          path: ${{ env.COMPOSER_CACHE_DIR }}
+          path: ${{ steps.composer-cache.outputs.dir }}
           key: php8.3-composer-${{ hashFiles('**/composer.json') }}
           restore-keys: |
             php8.3-composer-
-
-      - name: Update Composer
-        run: composer self-update
 
       - name: Install Dependencies
         run: composer install --no-progress --optimize-autoloader --prefer-dist --no-interaction
@@ -41,11 +41,11 @@ jobs:
             --no-ansi \
             --no-dev \
             --no-abandoned=report \
-            > /tmp/security-audit.json
+            > security-audit.json
 
       - name: Upload Audit Report
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: security-audit
-          path: /tmp/security-audit.json
+          path: security-audit.json
