@@ -7,11 +7,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: 8.3
           tools: composer:v2
+
       - name: Setup Cache
         run: echo "COMPOSER_CACHE_DIR = $(composer config cache-dir)" >> $GITHUB_ENV
 
@@ -29,15 +31,15 @@ jobs:
       - name: install deps
         run: composer install --no-progress --optimize-autoloader --prefer-dist --no-interaction
 
-      - name: Security Audit
+      - name: security Audit
         run: |
-          composer audit\
-            --format = "json"\
-            --ignore-severity = "low"\
-            --ignore-severity = "medium"\
-            --no-ansi\
-            --no-dev\
-            --no-abandoned = "report"\
+          composer audit \
+            --format = "json" \
+            --ignore-severity = "low" \
+            --ignore-severity = "medium" \
+            --no-ansi \
+            --no-dev \
+            --no-abandoned = "report" \
             > /tmp/security-audit.json
       - name: upload security audit report
         uses: actions/upload-artifact@v4
