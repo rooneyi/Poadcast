@@ -1,5 +1,6 @@
 name: Security Audit
-on: [push,pull_request]
+on: [push, pull_request]
+
 jobs:
   audit:
     name: Security Audit
@@ -11,14 +12,14 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.3
+          php-version: '8.3'
           tools: composer:v2
 
       - name: Setup Cache
-        run: echo "COMPOSER_CACHE_DIR = $(composer config cache-dir)" >> $GITHUB_ENV
+        run: echo "COMPOSER_CACHE_DIR=$(composer config cache-dir)" >> $GITHUB_ENV
 
       - name: Caching deps
-        uses : actions/cache@v4
+        uses: actions/cache@v4
         with:
           path: ${{ env.COMPOSER_CACHE_DIR }}
           key: php8.3-composer-${{ hashFiles('**/composer.json') }}
@@ -28,20 +29,21 @@ jobs:
       - name: Update Composer
         run: composer self-update
 
-      - name: install deps
+      - name: Install deps
         run: composer install --no-progress --optimize-autoloader --prefer-dist --no-interaction
 
-      - name: security Audit
+      - name: Security Audit
         run: |
           composer audit \
-            --format = "json" \
-            --ignore-severity = "low" \
-            --ignore-severity = "medium" \
+            --format=json \
+            --ignore-severity=low \
+            --ignore-severity=medium \
             --no-ansi \
             --no-dev \
-            --no-abandoned = "report" \
+            --no-abandoned=report \
             > /tmp/security-audit.json
-      - name: upload security audit report
+
+      - name: Upload security audit report
         uses: actions/upload-artifact@v4
         if: always()
         with:
