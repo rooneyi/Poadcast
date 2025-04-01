@@ -1,0 +1,166 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+
+
+    {#    {% for flash_error in app.flashes('verify_email_error') %} #}
+    {#        <div class="alert alert-danger" role="alert">{{ flash_error }}</div> #}
+    {#    {% endfor %} #}
+    {#    <section class="flex min-h-screen"> #}
+    {#        {{ form_errors(registrationForm) }} #}
+
+    {#        {{ form_start(registrationForm) }} #}
+
+
+    {#        <form action="" class="card bg-ui tls-shadow-md m-auto h-fit w-full max-w-sm p-1"> #}
+    {#            <div class="p-8"> #}
+    {#                <div> #}
+    {#                    <h1 class="text-title mb-1 text-xl font-semibold">Sign In to Tailus UI</h1> #}
+    {#                    <p class="text-sm">Welcome back! Sign in to continue</p> #}
+    {#                </div> #}
+
+    {#                <div class="mt-6 grid grid-cols-2 gap-3"> #}
+    {#                    <button type="button" class="btn sz-sm variant-outlined"> #}
+    {#                        <svg xmlns="http://www.w3.org/2000/svg" width="0.98em" height="1em" viewBox="0 0 256 262"> #}
+    {#                            <path fill="#4285f4" #}
+    {#                                  d="M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622l38.755 30.023l2.685.268c24.659-22.774 38.875-56.282 38.875-96.027"></path> #}
+    {#                            <path fill="#34a853" #}
+    {#                                  d="M130.55 261.1c35.248 0 64.839-11.605 86.453-31.622l-41.196-31.913c-11.024 7.688-25.82 13.055-45.257 13.055c-34.523 0-63.824-22.773-74.269-54.25l-1.531.13l-40.298 31.187l-.527 1.465C35.393 231.798 79.49 261.1 130.55 261.1"></path> #}
+    {#                            <path fill="#fbbc05" #}
+    {#                                  d="M56.281 156.37c-2.756-8.123-4.351-16.827-4.351-25.82c0-8.994 1.595-17.697 4.206-25.82l-.073-1.73L15.26 71.312l-1.335.635C5.077 89.644 0 109.517 0 130.55s5.077 40.905 13.925 58.602z"></path> #}
+    {#                            <path fill="#eb4335" #}
+    {#                                  d="M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0C79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251"></path> #}
+    {#                        </svg> #}
+    {#                        <span class="btn-label">Google</span> #}
+    {#                    </button> #}
+    {#                    <button type="button" class="btn sz-sm variant-outlined"> #}
+    {#                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256"> #}
+    {#                            <path fill="#f1511b" d="M121.666 121.666H0V0h121.666z"></path> #}
+    {#                            <path fill="#80cc28" d="M256 121.666H134.335V0H256z"></path> #}
+    {#                            <path fill="#00adef" d="M121.663 256.002H0V134.336h121.663z"></path> #}
+    {#                            <path fill="#fbbc09" d="M256 256.002H134.335V134.336H256z"></path> #}
+    {#                        </svg> #}
+    {#                        <span class="btn-label">Microsoft</span> #}
+    {#                    </button> #}
+    {#                </div> #}
+
+    {#                <hr class="my-8 border-dashed"/> #}
+
+    {#                <div class="space-y-6"> #}
+    {#                    <div class="field"> #}
+    {#                        <label for="email2" class="text-title text-sm"> Username</label> #}
+    {#                        {{ form_widget(registrationForm.email,{'attr':{'class':"input sz-md variant-mixed"}}) }} #}
+
+    {#                        #}{#                        <input type="email" required name="email2" id="email2" class= /> #}
+    {#                    </div> #}
+
+    {#                    <div class="field"> #}
+    {#                        <div class="flex justify-between"> #}
+    {#                            <label for="pwd" class="text-title text-sm"> Password</label> #}
+    {#                            <a href="#" class="link intent-info variant-ghost text-sm"> Forgot your Password ?</a> #}
+    {#                        </div> #}
+    {#                        {{ form_widget(registrationForm.plainPassword, { 'attr':{'class':"input sz-md variant-mixed"} }) }} #}
+    {#                    </div> #}
+    {#                    {{ form_row(registrationForm.agreeTerms) }} #}
+
+    {#                    <button class="btn variant-primary sz-md w-full">Sign In</button> #}
+    {#                </div> #}
+    {#            </div> #}
+
+    {#            <div data-shade="925" class="card variant-soft rounded-[calc(var(--card-radius)-4px)] dark:!bg-[--ui-bg]"> #}
+    {#                <p class="text-center text-sm"> #}
+    {#                    Don't have an account ? #}
+    {#                    <a href="#" class="link intent-neutral variant-underlined"> Create account</a> #}
+    {#                </p> #}
+    {#            </div> #}
+    {#            {{ form_end(registrationForm) }} #}
+
+    {#    </section> #}
+    {% for flash_error in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+    <section class="flex min-h-screen">
+        <form action="" class="card bg-ui tls-shadow-md m-auto h-fit w-full max-w-sm p-1">
+            <div class="p-8">
+                <div class="text-center">
+                    <h1 class="text-title mb-1 text-xl font-semibold">Create an Account</h1>
+                    <p class="text-sm">Welcome back! Create an account</p>
+                </div>
+
+                <div class="mt-6 grid grid-cols-2 gap-3">
+                    <button type="button" class="btn sz-sm variant-outlined">
+                        <svg class="size-4" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                             viewBox="0 0 24 24"
+                        >
+                            <path fill="currentColor"
+                                  d="M3.064 7.51A10 10 0 0 1 12 2c2.695 0 4.959.991 6.69 2.605l-2.867 2.868C14.786 6.482 13.468 5.977 12 5.977c-2.605 0-4.81 1.76-5.595 4.123c-.2.6-.314 1.24-.314 1.9s.114 1.3.314 1.9c.786 2.364 2.99 4.123 5.595 4.123c1.345 0 2.49-.355 3.386-.955a4.6 4.6 0 0 0 1.996-3.018H12v-3.868h9.418c.118.654.182 1.336.182 2.045c0 3.046-1.09 5.61-2.982 7.35C16.964 21.105 14.7 22 12 22A9.996 9.996 0 0 1 2 12c0-1.614.386-3.14 1.064-4.49"></path>
+                        </svg
+                        >
+                        <span class="btn-label">Google</span>
+                    </button>
+                    <button type="button" class="btn sz-sm variant-outlined">
+                        <svg class="size-4" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                             viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                  d="M11.501 3v8.5h-8.5V3zm0 18h-8.5v-8.5h8.5zm1-18h8.5v8.5h-8.5zm8.5 9.5V21h-8.5v-8.5z"></path>
+                        </svg>
+                        <span class="btn-label">Microsoft</span>
+                    </button>
+                </div>
+
+                <hr class="my-8 border-dashed"/>
+
+                <div class="space-y-8">
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="field">
+                                <label for="name" class="text-title text-sm">Full name</label>
+                                {{ form_widget(registrationForm.name,{'attr':{'class':"input sz-md variant-outlined"}}) }}
+
+                                {#                                <input type="text" required name="name" id="name" class="input sz-md variant-outlined" /> #}
+                            </div>
+                            {#                            <div class="field"> #}
+                            {#                                <label for="lname" class="text-title text-sm">Last name</label> #}
+                            {#                                {{ form_widget(registrationForm.email,{'attr':{'class':"input sz-md variant-outlined"}}) }} #}
+
+                            {#                                <input type="text" required name="lname" id="lname" class="input sz-md variant-outlined" /> #}
+                            {#                            </div> #}
+                        </div>
+                        <div class="field">
+                            <label for="phone" class="text-title text-sm"> Phone</label>
+                            {{ form_widget(registrationForm.phone,{'attr':{'class':"input sz-md variant-outlined"}}) }}
+
+                            {#                            <input type="email" required name="email2" id="email2" class="input sz-md variant-outlined" /> #}
+                        </div>
+                        <div class="field">
+                            <label for="email2" class="text-title text-sm"> Email</label>
+                            {{ form_widget(registrationForm.email,{'attr':{'class':"input sz-md variant-outlined"}}) }}
+
+                            {#                            <input type="email" required name="email2" id="email2" class="input sz-md variant-outlined" /> #}
+                        </div>
+
+
+                        <div class="field">
+                            <label for="pwd" class="text-title text-sm"> Password</label>
+                            {{ form_widget(registrationForm.plainPassword,{'attr':{'class':"input sz-md variant-outlined"}}) }}
+                        </div>
+                    </div>
+                    {{ form_row(registrationForm.agreeTerms) }}
+
+                    <button class="btn variant-primary sz-md w-full">Sign Up</button>
+                </div>
+            </div>
+
+
+            <div data-shade="925" class="card variant-soft rounded-[calc(var(--card-radius)-4px)] dark:!bg-[--ui-bg]">
+                <p class="text-center text-sm">
+                    Already have an account ?
+                    <a href="#" class="link intent-neutral variant-underlined">Login</a>
+                </p>
+            </div>
+            {{ form_end(registrationForm) }}
+    </section>
+
+{% endblock %}
