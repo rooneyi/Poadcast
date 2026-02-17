@@ -100,21 +100,31 @@
                 </div>
 
                 <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
-                    {% for i in 1..4 %}
+                    {% for podcast in latest_podcasts %}
                     <div class="group relative flex flex-col bg-gray-50/50 dark:bg-gray-900/50 rounded-3xl p-4 transition-all hover:bg-white hover:shadow-xl dark:hover:bg-gray-900 border border-transparent hover:border-gray-100 dark:hover:border-gray-800">
                         <div class="aspect-square overflow-hidden rounded-2xl mb-6 relative">
-                            <img src="https://images.unsplash.com/photo-1478737270239-2fccd27ee086?w=400&h=400&auto=format&fit=crop&q=60" 
-                                 alt="Podcast cover" 
-                                 class="h-full w-full object-cover">
+                            {% if podcast.coverImage %}
+                                <img src="{{ asset('uploads/podcasts/images/' ~ podcast.coverImage) }}" 
+                                     alt="{{ podcast.title }}" 
+                                     class="h-full w-full object-cover">
+                            {% else %}
+                                <div class="h-full w-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
+                                    <svg class="h-12 w-12 text-indigo-400 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19V6l12-3v13" />
+                                    </svg>
+                                </div>
+                            {% endif %}
                             <div class="absolute inset-0 bg-indigo-600/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                         </div>
                         <div class="flex flex-col flex-1">
-                            <span class="text-xs font-bold text-indigo-600 uppercase tracking-wider mb-2">Technologie</span>
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2 leading-tight">L'avenir de l'IA dans la création audio</h3>
-                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-auto">Par Jean Dupont • 45 min</p>
+                            <span class="text-xs font-bold text-indigo-600 uppercase tracking-wider mb-2">{{ podcast.author ?: 'Anonyme' }}</span>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2 leading-tight">{{ podcast.title }}</h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-auto">{{ podcast.duration ?: '--:--' }}</p>
                         </div>
-                        <a href="#" class="absolute inset-0"></a>
+                        <a href="{{ path('app_podcast_show', {'id': podcast.id}) }}" class="absolute inset-0"></a>
                     </div>
+                    {% else %}
+                        <p class="col-span-full text-center text-gray-500 py-12">Aucun podcast récent disponible.</p>
                     {% endfor %}
                 </div>
             </div>

@@ -1,0 +1,114 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ podcast.title }}{% endblock %}
+
+{% block body %}
+    <div class="max-w-4xl mx-auto py-12 px-6">
+        <div class="flex flex-col md:flex-row gap-12 items-start">
+            <!-- Cover Art -->
+            <div class="w-full md:w-80 shrink-0">
+                <div class="aspect-square rounded-3xl overflow-hidden shadow-2xl border border-gray-100 dark:border-gray-800">
+                    {% if podcast.coverImage %}
+                        <img src="{{ asset('uploads/podcasts/images/' ~ podcast.coverImage) }}" 
+                             alt="{{ podcast.title }}" 
+                             class="h-full w-full object-cover">
+                    {% else %}
+                        <div class="h-full w-full bg-indigo-600 flex items-center justify-center">
+                            <svg class="h-32 w-32 text-white/20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                            </svg>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="flex-1">
+                <div class="flex items-center gap-x-2 text-sm font-bold text-indigo-600 uppercase tracking-wider mb-4">
+                    <span>{{ podcast.author ?: 'Auteur inconnu' }}</span>
+                    <span class="text-gray-300 dark:text-gray-700">•</span>
+                    <span class="text-gray-500 dark:text-gray-400 font-normal">{{ podcast.createdAt|date('d M Y') }}</span>
+                </div>
+                
+                <h1 class="text-4xl font-black text-gray-900 dark:text-white mb-6 leading-tight">{{ podcast.title }}</h1>
+                
+                <div class="prose prose-indigo dark:prose-invert max-w-none text-gray-600 dark:text-gray-400 mb-10">
+                    {{ podcast.description|nl2br }}
+                </div>
+
+                <!-- Custom Audio Player -->
+                <div class="bg-gray-50 dark:bg-gray-900 rounded-3xl p-8 border border-gray-100 dark:border-gray-800 shadow-sm">
+                    <audio id="audio-player" src="{{ asset('uploads/podcasts/audio/' ~ podcast.audioFile) }}" controls class="hidden"></audio>
+                    
+                    <div class="flex items-center gap-x-8">
+                         <!-- Play Button -->
+                         <button id="play-btn" class="bg-indigo-600 hover:bg-indigo-500 text-white p-6 rounded-full shadow-lg shadow-indigo-200 dark:shadow-none transition-all">
+                              <svg id="play-icon" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+                                  <path d="M8 5v14l11-7z" />
+                              </svg>
+                              <svg id="pause-icon" class="h-8 w-8 hidden" fill="currentColor" viewBox="0 0 24 24">
+                                  <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                              </svg>
+                         </button>
+
+                         <div class="flex-1">
+                              <div class="flex justify-between text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest">
+                                   <span id="current-time">00:00</span>
+                                   <span id="duration-time">--:--</span>
+                              </div>
+                              <div class="relative group h-2 bg-gray-200 dark:bg-gray-800 rounded-full cursor-pointer" id="progress-bar-container">
+                                   <div id="progress-bar" class="absolute inset-y-0 left-0 bg-indigo-600 rounded-full transition-all" style="width: 0%"></div>
+                              </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const audio = document.getElementById('audio-player');
+        const playBtn = document.getElementById('play-btn');
+        const playIcon = document.getElementById('play-icon');
+        const pauseIcon = document.getElementById('pause-icon');
+        const progressBar = document.getElementById('progress-bar');
+        const progressBarContainer = document.getElementById('progress-bar-container');
+        const currentTimeEl = document.getElementById('current-time');
+        const durationEl = document.getElementById('duration-time');
+
+        function formatTime(seconds) {
+            const min = Math.floor(seconds / 60);
+            const sec = Math.floor(seconds % 60);
+            return `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+        }
+
+        playBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                playIcon.classList.add('hidden');
+                pauseIcon.classList.remove('hidden');
+            } else {
+                audio.pause();
+                playIcon.classList.remove('hidden');
+                pauseIcon.classList.add('hidden');
+            }
+        });
+
+        audio.addEventListener('timeupdate', () => {
+            const percent = (audio.currentTime / audio.duration) * 100;
+            progressBar.style.width = percent + '%';
+            currentTimeEl.textContent = formatTime(audio.currentTime);
+        });
+
+        audio.addEventListener('loadedmetadata', () => {
+            durationEl.textContent = formatTime(audio.duration);
+        });
+
+        progressBarContainer.addEventListener('click', (e) => {
+            const width = progressBarContainer.clientWidth;
+            const clickX = e.offsetX;
+            const duration = audio.duration;
+            audio.currentTime = (clickX / width) * duration;
+        });
+    </script>
+{% endblock %}

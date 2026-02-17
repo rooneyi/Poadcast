@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Podcast{% endblock %}
+
+{% block body %}
+    <div class="max-w-3xl mx-auto py-12 px-6">
+        <h1 class="text-3xl font-bold mb-8 text-gray-900 dark:text-white">Créer un nouveau podcast</h1>
+
+        <div class="bg-white dark:bg-gray-900 shadow-xl rounded-2xl p-8 border border-gray-100 dark:border-gray-800">
+            {{ form_start(form) }}
+                <div class="space-y-6">
+                    <div>
+                        {{ form_label(form.title, 'Titre du podcast', {'label_attr': {'class': 'block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300'}}) }}
+                        {{ form_widget(form.title, {'attr': {'class': 'w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:ring-2 focus:ring-indigo-500 transition-all outline-none text-gray-900 dark:text-white', 'placeholder': 'Ex: Mon incroyable podcast'}}) }}
+                    </div>
+
+                    <div>
+                        {{ form_label(form.description, 'Description', {'label_attr': {'class': 'block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300'}}) }}
+                        {{ form_widget(form.description, {'attr': {'class': 'w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:ring-2 focus:ring-indigo-500 transition-all outline-none text-gray-900 dark:text-white', 'rows': '5', 'placeholder': 'De quoi parle cet épisode ?'}}) }}
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            {{ form_label(form.author, 'Auteur / Créateur', {'label_attr': {'class': 'block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300'}}) }}
+                            {{ form_widget(form.author, {'attr': {'class': 'w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:ring-2 focus:ring-indigo-500 transition-all outline-none text-gray-900 dark:text-white'}}) }}
+                        </div>
+                        <div>
+                            {{ form_label(form.duration, 'Durée (ex: 45:00)', {'label_attr': {'class': 'block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300'}}) }}
+                            {{ form_widget(form.duration, {'attr': {'class': 'w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:ring-2 focus:ring-indigo-500 transition-all outline-none text-gray-900 dark:text-white'}}) }}
+                        </div>
+                    </div>
+
+                    <div class="border-t border-gray-100 dark:border-gray-800 pt-6">
+                        <label class="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300">Fichiers média</label>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                            <div class="relative">
+                                {{ form_widget(form.audioFile, {'attr': {'class': 'block w-full text-sm text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 dark:file:bg-gray-800 dark:file:text-gray-300'}}) }}
+                                <p class="mt-2 text-xs text-gray-500">Fichier audio (MP3, WAV)</p>
+                            </div>
+                            <div class="relative">
+                                {{ form_widget(form.coverImage, {'attr': {'class': 'block w-full text-sm text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-gray-50 file:text-gray-700 hover:file:bg-gray-100 dark:file:bg-gray-800 dark:file:text-gray-300'}}) }}
+                                <p class="mt-2 text-xs text-gray-500">Image de couverture (JPG, PNG)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-end gap-x-6 mt-10">
+                        <a href="{{ path('app_podcast_index') }}" class="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-300">Annuler</a>
+                        <button type="submit" class="rounded-full bg-indigo-600 px-8 py-3.5 text-sm font-semibold text-white shadow-xl hover:bg-indigo-500 transition-all">Créer le podcast</button>
+                    </div>
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
