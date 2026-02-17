@@ -2,144 +2,132 @@
 {% block title %}Accueil - Plateforme Podcast{% endblock %}
 {% block body %}
 
-    <main>
-        <!-- Effets visuels d'arrière-plan -->
-        <div class="absolute inset-0 isolate z-[2] hidden contain-strict lg:block">
-            <div class="absolute left-0 top-0 h-[1280px] w-[560px] -translate-y-[350px] -rotate-45 rounded-full bg-[radial-gradient(68.54%_68.72%_at_55.02%_31.46%,hsla(0,0%,85%,.08)_0,hsla(0,0%,55%,.02)_50%,hsla(0,0%,45%,0)_80%)]"></div>
-            <div class="absolute left-0 top-0 h-[1280px] w-[240px] -rotate-45 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,hsla(0,0%,85%,.06)_0,hsla(0,0%,45%,.02)_80%,transparent_100%)] [translate:5%_-50%]"></div>
-            <div class="absolute left-0 top-0 h-[1280px] w-[240px] -translate-y-[350px] -rotate-45 bg-[radial-gradient(50%_50%_at_50%_50%,hsla(0,0%,85%,.04)_0,hsla(0,0%,45%,.02)_80%,transparent_100%)]"></div>
-        </div>
-
+    <main class="overflow-hidden">
         <!-- Section Hero -->
+
         <section class="overflow-hidden bg-white dark:bg-transparent">
             <div class="relative mx-auto max-w-5xl px-6 py-28 lg:py-24">
                 <div class="relative z-10 mx-auto max-w-2xl text-center">
-                    <h1 class="text-title text-balance text-4xl font-semibold md:text-5xl lg:text-6xl">
-                        Réinventez votre expérience podcast
+                    <h1 class="text-gray-900 dark:text-white text-balance text-5xl font-extrabold tracking-tight md:text-6xl lg:text-7xl">
+                        Racontez votre histoire au <span class="text-indigo-600 dark:text-indigo-400">monde entier</span>
                     </h1>
-                    <p class="text-body mx-auto mt-8 max-w-2xl text-xl">
-                        Plateforme tout-en-un pour créer, héberger et monétiser vos contenus audio avec des outils professionnels.
+                    <p class="text-gray-600 dark:text-gray-400 mx-auto mt-8 max-w-2xl text-xl leading-relaxed">
+                        La plateforme de podcasting nouvelle génération. Enregistrez, éditez et diffusez vos épisodes en quelques clics seulement.
                     </p>
-                    <a href="" class="btn variant-neutral sz-md mx-auto mt-8 w-fit">
-                        <span class="btn-label">Commencer maintenant</span>
-                    </a>
+                    <div class="mt-10 flex items-center justify-center gap-x-6">
+                        <a href="{{ path('app_register') }}" class="rounded-full bg-indigo-600 px-8 py-4 text-lg font-semibold text-white shadow-lg hover:bg-indigo-500 transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            Commencer gratuitement
+                        </a>
+                        <a href="#features" class="text-lg font-semibold leading-6 text-gray-900 dark:text-gray-200 hover:text-indigo-600 transition-colors">
+                            En savoir plus <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="mx-auto -mt-16 max-w-7xl">
-                <div class="-mr-16 pl-16 [perspective:1000px] lg:-mr-56 lg:pl-56">
-                    <div class="[transform:rotateX(20deg);]">
-                        <div class="relative [transform:skewX(.36rad);] lg:h-[44rem]">
-                            <div class="absolute -inset-16 z-[1] bg-gradient-to-b from-white via-transparent to-white sm:-inset-32 dark:from-gray-950 dark:via-transparent dark:to-gray-950"></div>
-                            <div class="absolute -inset-16 z-[1] bg-gradient-to-r from-white via-transparent to-white sm:-inset-32 dark:from-gray-950 dark:via-transparent dark:to-gray-950"></div>
-                            <div data-shade="glassy" class="absolute -inset-16 bg-[linear-gradient(to_right,var(--ui-border-color)_1px,transparent_1px),linear-gradient(to_bottom,var(--ui-border-color)_1px,transparent_1px)] bg-[size:24px_24px] [--ui-border-color:theme(colors.gray.400)] sm:-inset-32 dark:[--ui-border-color:theme(colors.white/0.2)]"></div>
-                            <div class="absolute inset-0 z-[11] bg-gradient-to-l from-white dark:from-gray-950"></div>
-                            <div class="absolute inset-0 z-[2] h-full w-full items-center px-5 py-24 [--layer-color:theme(colors.white)] [background:radial-gradient(125%_125%_at_50%_10%,transparent_40%,var(--layer-color)_100%)] dark:[--layer-color:theme(colors.gray.950)]"></div>
-
-                            <!-- Illustration adaptée pour le podcast -->
-                            <img src="https://images.unsplash.com/photo-1593697909683-bccb1b9e68a4?w=1200&auto=format"
-                                 alt="Studio podcast professionnel"
-                                 class="w-full h-96 object-cover rounded-xl">
-                            <img src="https://images.unsplash.com/photo-1593697909683-bccb1b9e68a4?w=1200&auto=format"
-                                 alt="Studio podcast professionnel"
-                                 class="w-full h-96 object-cover rounded-xl">
-                            <img src="https://images.unsplash.com/photo-1593697909683-bccb1b9e68a4?w=1200&auto=format"
-                                 alt="Studio podcast professionnel"
-                                 class="w-full h-96 object-cover rounded-xl">
-
-                        </div>
-                    </div>
+            
+            <div class="relative mx-auto max-w-7xl px-6 lg:px-8 pb-24">
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
+                    <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=2000&auto=format&fit=crop"
+                         alt="Interface Waveform"
+                         class="w-full h-[400px] md:h-[600px] object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900/40 via-transparent to-transparent"></div>
                 </div>
             </div>
         </section>
 
         <!-- Section Fonctionnalités -->
-        <section>
-            <div class="py-32">
-                <div class="mx-auto px-6 max-w-5xl">
-                    <div class="text-center">
-                        <h2 class="text-3xl text-title font-semibold">Démarrez avec nos solutions clés en main</h2>
-                        <p class="mt-6 text-body">
-                            Des modèles optimisés pour chaque type de contenu audio
-                        </p>
+        <section id="features" class="py-24 bg-gray-50 dark:bg-gray-950">
+            <div class="mx-auto px-6 max-w-7xl">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-base font-semibold leading-7 text-indigo-600 uppercase tracking-wide">Fonctionnalités</h2>
+                    <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+                        Tout ce dont vous avez besoin pour réussir
+                    </p>
+                    <p class="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">
+                        PodFlow simplifie chaque étape de votre parcours de podcaster, de l'idée initiale à la monétisation.
+                    </p>
+                </div>
+
+                <div class="mt-20 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
+                    <!-- Carte 1 -->
+                    <div class="flex flex-col items-start bg-white dark:bg-gray-900 p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-md transition-shadow">
+                        <div class="rounded-2xl bg-indigo-50 dark:bg-indigo-900/30 p-3 mb-6">
+                            <svg class="h-8 w-8 text-indigo-600 dark:text-indigo-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Enregistrement Haute Qualité</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Studio virtuel complet pour enregistrer en local et à distance avec une qualité studio.</p>
                     </div>
-                    <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                        <!-- Carte 1 : Interview -->
-                        <div class="relative group overflow-hidden card variant-outlined">
-                            <div aria-hidden="true" class="inset-0 absolute aspect-video border rounded-full -translate-y-1/2 group-hover:-translate-y-1/4 duration-300 bg-gradient-to-b from-warning-500 to-white dark:from-white dark:to-white blur-2xl opacity-25 dark:opacity-0 dark:group-hover:opacity-5"></div>
-                            <div class="relative">
-                                <img src="https://illustrations.popsy.co/amber/digital-nomad.svg" alt="Podcast Creation"
-                                     class="w-full max-w-md mx-auto">
-                                <div class="mt-6 pb-6 rounded-b-[--card-border-radius]">
-                                    <h3 class="text-xl font-semibold">Format Interview</h3>
-                                    <p class="text-body">Structure optimisée pour les conversations à plusieurs voix avec gestion des participants.</p>
-                                </div>
-                            </div>
-                        </div>
 
-                        <!-- Carte 2 : Narration -->
-                        <div class="relative group overflow-hidden card variant-outlined">
-                            <div aria-hidden="true" class="inset-0 absolute aspect-video border rounded-full -translate-y-1/2 group-hover:-translate-y-1/4 duration-300 bg-gradient-to-b from-success-500 to-white dark:from-white dark:to-white blur-2xl opacity-25 dark:opacity-0 dark:group-hover:opacity-5"></div>
-                            <div class="relative">
-                                <img src="https://illustrations.popsy.co/amber/digital-nomad.svg" alt="Podcast Creation"
-                                     class="w-full max-w-md mx-auto">                                <div class="mt-6 pb-6 rounded-b-[--card-border-radius]">
-                                    <h3 class="text-xl font-semibold">Format Narration</h3>
-                                    <p class="text-body">Modèle conçu pour les podcasts en solo avec gestion des chapitres et marqueurs.</p>
-                                </div>
-                            </div>
+                    <!-- Carte 2 -->
+                    <div class="flex flex-col items-start bg-white dark:bg-gray-900 p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-md transition-shadow">
+                        <div class="rounded-2xl bg-purple-50 dark:bg-purple-900/30 p-3 mb-6">
+                            <svg class="h-8 w-8 text-purple-600 dark:text-purple-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 18H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 12h9.75" />
+                            </svg>
                         </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Édition Facilitée</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Éditeur audio par blocs, intelligent et accessible, même pour les débutants.</p>
+                    </div>
 
-                        <!-- Carte 3 : Émission -->
-                        <div class="relative group overflow-hidden card variant-outlined">
-                            <div aria-hidden="true" class="inset-0 absolute aspect-video border rounded-full -translate-y-1/2 group-hover:-translate-y-1/4 duration-300 bg-gradient-to-b from-danger-500 to-white dark:from-white dark:to-white blur-2xl opacity-25 dark:opacity-0 dark:group-hover:opacity-5"></div>
-                            <div class="relative">
-                                <img src="https://illustrations.popsy.co/amber/digital-nomad.svg" alt="Podcast Creation"
-                                     class="w-full max-w-md mx-auto">                                <div class="mt-6 pb-6 rounded-b-[--card-border-radius]">
-                                    <h3 class="text-xl font-semibold">Format Émission</h3>
-                                    <p class="text-body">Structure pour émissions régulières avec gestion des rubriques et génériques.</p>
-                                </div>
-                            </div>
+                    <!-- Carte 3 -->
+                    <div class="flex flex-col items-start bg-white dark:bg-gray-900 p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-md transition-shadow">
+                        <div class="rounded-2xl bg-teal-50 dark:bg-teal-900/30 p-3 mb-6">
+                            <svg class="h-8 w-8 text-teal-600 dark:text-teal-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                            </svg>
                         </div>
-
-                        <!-- Carte 4 : Éducatif -->
-                        <div class="relative group overflow-hidden card variant-outlined">
-                            <div aria-hidden="true" class="inset-0 absolute aspect-video border rounded-full -translate-y-1/2 group-hover:-translate-y-1/4 duration-300 bg-gradient-to-b from-info-500 to-white dark:from-white dark:to-white blur-2xl opacity-25 dark:opacity-0 dark:group-hover:opacity-5"></div>
-                            <div class="relative">
-                                <img src="https://illustrations.popsy.co/amber/digital-nomad.svg" alt="Podcast Creation"
-                                     class="w-full max-w-md mx-auto">                                <div class="mt-6 pb-6 rounded-b-[--card-border-radius]">
-                                    <h3 class="text-xl font-semibold">Format Éducatif</h3>
-                                    <p class="text-body">Modèle pédagogique avec gestion des exercices et ressources complémentaires.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Carte 5 : Fiction -->
-                        <div class="relative group overflow-hidden card variant-outlined">
-                            <div aria-hidden="true" class="inset-0 absolute aspect-video border rounded-full -translate-y-1/2 group-hover:-translate-y-1/4 duration-300 bg-gradient-to-b from-purple-500 to-white dark:from-white dark:to-white blur-2xl opacity-25 dark:opacity-0 dark:group-hover:opacity-5"></div>
-                            <div class="relative">
-                                <img src="https://illustrations.popsy.co/amber/digital-nomad.svg" alt="Podcast Creation"
-                                     class="w-full max-w-md mx-auto">                                <div class="mt-6 pb-6 rounded-b-[--card-border-radius]">
-                                    <h3 class="text-xl font-semibold">Format Fiction</h3>
-                                    <p class="text-body">Structure pour podcasts narratifs avec gestion des personnages et effets sonores.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Carte 6 : Actualité -->
-                        <div class="relative group overflow-hidden card variant-outlined">
-                            <div aria-hidden="true" class="inset-0 absolute aspect-video border rounded-full -translate-y-1/2 group-hover:-translate-y-1/4 duration-300 bg-gradient-to-b from-blue-500 to-white dark:from-white dark:to-white blur-2xl opacity-25 dark:opacity-0 dark:group-hover:opacity-5"></div>
-                            <div class="relative">
-                                <img src="https://illustrations.popsy.co/amber/digital-nomad.svg" alt="Podcast Creation"
-                                     class="w-full max-w-md mx-auto">                                <div class="mt-6 pb-6 rounded-b-[--card-border-radius]">
-                                    <h3 class="text-xl font-semibold">Format Actualité</h3>
-                                    <p class="text-body">Modèle pour podcasts d'actualité avec gestion des brèves et analyses.</p>
-                                </div>
-                            </div>
-                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Monétisation Native</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Insérez des publicités, créez des abonnements premium et recevez des pourboires.</p>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Section Derniers Épisodes (Clean Part 3) -->
+        <section class="py-24 bg-white dark:bg-gray-950">
+            <div class="mx-auto px-6 max-w-7xl">
+                <div class="flex items-end justify-between mb-12 border-b border-gray-100 dark:border-gray-800 pb-8">
+                    <div class="max-w-xl">
+                        <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">Épisodes Populaires</h2>
+                        <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">Découvrez ce que la communauté PodFlow écoute en ce moment.</p>
+                    </div>
+                    <a href="#" class="hidden sm:inline-flex items-center gap-x-2 text-sm font-semibold leading-6 text-indigo-600 hover:text-indigo-500 transition-colors">
+                        Tout parcourir
+                        <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+                    {% for i in 1..4 %}
+                    <div class="group relative flex flex-col bg-gray-50/50 dark:bg-gray-900/50 rounded-3xl p-4 transition-all hover:bg-white hover:shadow-xl dark:hover:bg-gray-900 border border-transparent hover:border-gray-100 dark:hover:border-gray-800">
+                        <div class="aspect-square overflow-hidden rounded-2xl mb-6 relative">
+                            <img src="https://images.unsplash.com/photo-1478737270239-2fccd27ee086?w=400&h=400&auto=format&fit=crop&q=60" 
+                                 alt="Podcast cover" 
+                                 class="h-full w-full object-cover">
+                            <div class="absolute inset-0 bg-indigo-600/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </div>
+                        <div class="flex flex-col flex-1">
+                            <span class="text-xs font-bold text-indigo-600 uppercase tracking-wider mb-2">Technologie</span>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2 leading-tight">L'avenir de l'IA dans la création audio</h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-auto">Par Jean Dupont • 45 min</p>
+                        </div>
+                        <a href="#" class="absolute inset-0"></a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final (Simple & Clean) -->
+        <section class="py-24 bg-indigo-600">
+            <div class="mx-auto max-w-4xl px-6 text-center text-white">
+                <h2 class="text-4xl font-black mb-8">Prêt à faire entendre votre voix ?</h2>
+                <a href="{{ path('app_register') }}" class="inline-block bg-white text-indigo-600 hover:bg-gray-100 px-10 py-5 rounded-full text-xl font-bold shadow-2xl transition-transform hover:scale-105 active:scale-95">
+                    Commencer l'aventure
+                </a>
+            </div>
+        </section>
     </main>
-
-
 {% endblock %}

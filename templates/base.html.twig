@@ -12,18 +12,12 @@
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
     </head>
-    <body class="font-['Inter'] bg-gray-50">
+    <body class="font-sans antialiased bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100">
         {% include "layout/_header.html.twig" %}
-        {% block body %}{% endblock %}
+        <div class="min-h-screen">
+            {% block body %}{% endblock %}
+        </div>
         {% include "layout/_footer.html.twig" %}
-
     </body>
-    <style>
-        .gradient-bg {
-            background: linear-gradient(135deg, #6E8EFB 0%, #A777E3 100%);
-        }
-        .podcast-icon {
-            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 100%);
-        }
-    </style>
+
 </html>

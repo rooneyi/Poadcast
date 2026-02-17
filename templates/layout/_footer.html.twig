@@ -1,31 +1,55 @@
-<footer class="border-b bg-white py-12 dark:bg-transparent">
-    <div class="mx-auto max-w-5xl px-6">
-        <div class="flex flex-wrap justify-between gap-6">
-            <!-- Copyright -->
-            <span class="text-caption order-last block text-center text-sm md:order-first">
-                &copy; 2025 PodFlow, Tous droits réservés
-            </span>
+<footer class="bg-gray-50 dark:bg-gray-950 border-t border-gray-100 dark:border-gray-800">
+    <div class="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <div class="col-span-1 md:col-span-2">
+                 <a href="{{ path('app_home_index') }}" class="flex items-center gap-x-3 mb-6">
+                    <div class="bg-indigo-600 rounded-xl p-2">
+                        <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                        </svg>
+                    </div>
+                    <span class="text-2xl font-black tracking-tight text-gray-900 dark:text-white">Pod<span class="text-indigo-600">Flow</span></span>
+                </a>
+                <p class="text-gray-600 dark:text-gray-400 max-w-sm mb-6">
+                    La plateforme ultime pour les créateurs de contenu audio. Rejoignez la révolution du podcasting dès aujourd'hui.
+                </p>
+                <div class="flex gap-x-6">
+                    <!-- Social Icons (Placeholders) -->
+                    {% for social in ['twitter', 'facebook', 'instagram', 'github'] %}
+                    <a href="#" class="text-gray-400 hover:text-indigo-600 transition-colors">
+                        <span class="sr-only">{{ social|capitalize }}</span>
+                        <div class="w-6 h-6 bg-gray-200 dark:bg-gray-800 rounded-full"></div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-6">Produit</h3>
+                <ul class="space-y-4">
+                    <li><a href="#features" class="text-gray-600 dark:text-gray-400 hover:text-indigo-600">Fonctionnalités</a></li>
+                    <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-indigo-600">Tarifs</a></li>
+                    <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-indigo-600">App Mobile</a></li>
+                </ul>
+            </div>
 
-            <!-- Liens -->
-            <div class="order-first flex flex-wrap justify-center gap-6 text-sm md:order-last">
-                <a href="{{ path('app_home_index') }}" class="text-body block hover:text-title">
-                    <span>Fonctionnalités</span>
-                </a>
-                <a href="{{ path('app_home_index') }}" class="text-body block hover:text-title">
-                    <span>Tarifs</span>
-                </a>
-                <a href="{{ path('app_home_index') }}" class="text-body block hover:text-title">
-                    <span>Admin</span>
-                </a>
-                <a href="{{ path('app_home_index') }}" class="text-body block hover:text-title">
-                    <span>À propos</span>
-                </a>
-                <a href="{{ path('app_home_index') }}" class="text-body block hover:text-title">
-                    <span>Contact</span>
-                </a>
-                <a href="{{ path('app_home_index') }}" class="text-body block hover:text-title">
-                    <span>Aide</span>
-                </a>
+            <div>
+                <h3 class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-6">Support</h3>
+                <ul class="space-y-4">
+                    <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-indigo-600">Aide & FAQ</a></li>
+                    <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-indigo-600">Contact</a></li>
+                    <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-indigo-600">Confidentialité</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="pt-8 border-t border-gray-100 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-y-4">
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+                &copy; {{ "now"|date("Y") }} PodFlow Inc. Fait avec passion pour les créateurs.
+            </p>
+            <div class="flex gap-x-8">
+                <a href="#" class="text-xs text-gray-500 hover:text-gray-900 dark:hover:text-white">Mentions légales</a>
+                <a href="#" class="text-xs text-gray-500 hover:text-gray-900 dark:hover:text-white">Cookies</a>
             </div>
         </div>
     </div>
