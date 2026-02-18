@@ -2,15 +2,15 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Attribute\Route;
-
 use App\Entity\Podcast;
 use App\Form\PodcastType;
 use App\Repository\PodcastRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 class PodcastController extends AbstractController
@@ -24,6 +24,7 @@ class PodcastController extends AbstractController
     }
 
     #[Route('/podcast/new', name: 'app_podcast_new')]
+    #[IsGranted('ROLE_USER')]
     public function new(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $podcast = new Podcast();
@@ -33,6 +34,12 @@ class PodcastController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $audioFile = $form->get('audioFile')->getData();
             $coverImage = $form->get('coverImage')->getData();
+
+            if ($this->getUser() && !$podcast->getAuthor()) {
+                /** @var \App\Entity\User $user */
+                $user = $this->getUser();
+                $podcast->setAuthor($user->getName() ?: (string) $user->getEmail());
+            }
 
             if ($audioFile) {
                 $originalFilename = pathinfo($audioFile->getClientOriginalName(), PATHINFO_FILENAME);
@@ -45,7 +52,7 @@ class PodcastController extends AbstractController
                         $newFilename
                     );
                 } catch (\Exception $e) {
-                    // Fail gracefully
+                    $this->addFlash('error', 'Une erreur est survenue lors de l\'upload du fichier audio.');
                 }
                 $podcast->setAudioFile($newFilename);
             }
@@ -61,7 +68,7 @@ class PodcastController extends AbstractController
                         $newCoverFilename
                     );
                 } catch (\Exception $e) {
-                    // Fail gracefully
+                    $this->addFlash('error', 'Une erreur est survenue lors de l\'upload de l\'image de couverture.');
                 }
                 $podcast->setCoverImage($newCoverFilename);
             }
@@ -69,7 +76,9 @@ class PodcastController extends AbstractController
             $entityManager->persist($podcast);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_podcast_index');
+            $this->addFlash('success', 'Votre podcast a bien été publié.');
+
+            return $this->redirectToRoute('app_podcast_show', ['id' => $podcast->getId()]);
         }
 
         return $this->render('podcast/new.html.twig', [
